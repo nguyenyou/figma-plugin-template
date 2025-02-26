@@ -1,0 +1,31 @@
+{
+  "name": "figma-plugin-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run build:watch\" \"npm run dev:code\"",
+    "build": "tsc -b && vite build && npm run build:code",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "build:code": "tsup plugin-src/code.ts --format esm --target es5 --out-dir out",
+    "dev:code": "tsup plugin-src/code.ts --format esm --target es5 --out-dir out --watch"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.108.0",
+    "@swc/core": "^1.11.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "concurrently": "^9.1.2",
+    "globals": "^15.15.0",
+    "tsup": "^8.4.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-singlefile": "^2.1.0"
+  }
+}
