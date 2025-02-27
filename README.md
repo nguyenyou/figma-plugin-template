@@ -2,6 +2,8 @@
 
 ## Development
 
+I use [bun](https://bun.sh/), but you can use any package manager.
+
 ```
 $ bun install
 $ bun dev
