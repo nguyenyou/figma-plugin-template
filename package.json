@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run build:watch\" \"npm run dev:code\"",
+    "dev:ui": "vite",
     "build": "tsc -b && vite build && npm run build:code",
     "build:watch": "vite build --watch",
     "preview": "vite preview",
@@ -12,8 +13,10 @@
     "dev:code": "tsup plugin-src/code.ts --format esm --target es5 --out-dir out --watch"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.9",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.108.0",
