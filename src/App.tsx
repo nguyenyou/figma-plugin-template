@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DesignToCodeLogo from "./components/design-to-code-logo";
 
 function App() {
   const [projectName, setProjectName] = useState("My Design");
@@ -6,24 +7,8 @@ function App() {
 
   return (
     <div className="w-full max-w-md mx-auto p-6 bg-white text-gray-800">
-      <div className="flex items-center justify-center mb-6">
-        <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-            />
-          </svg>
-        </div>
-        <h1 className="text-xl font-bold ml-3">Design to Code Converter</h1>
+      <div className="mb-6 rounded-lg overflow-hidden">
+        <DesignToCodeLogo />
       </div>
 
       <div className="bg-teal-50 rounded-lg p-4 mb-6 border border-teal-100">
