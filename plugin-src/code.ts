@@ -1,8 +1,39 @@
-// This shows the HTML page in "index.html".
-figma.showUI(__html__);
+function codegenMode() {
+  figma.codegen.on("generate", () => {
+    return [
+      {
+        language: "HTML",
+        code: `<div class="flex items-center justify-center">
+  <div class="w-10 h-10 bg-red-500"></div>
+</div>`,
+        title: "HTML",
+      },
+      {
+        language: "CSS",
+        code: `@import "tailwindcss";`,
+        title: "CSS",
+      },
+    ];
+  });
+}
 
-// This monitors the selection changes and posts the selection to the UI
-figma.on("selectionchange", () => {
-  const selection = figma.currentPage.selection;
-  console.log(selection);
-});
+function defaultMode() {
+  figma.showUI(__html__, { width: 800, height: 600 });
+
+  figma.on("selectionchange", () => {
+    const selection = figma.currentPage.selection;
+    console.log(selection);
+  });
+}
+
+switch (figma.mode) {
+  case "default":
+  case "inspect":
+    defaultMode();
+    break;
+  // case "codegen":
+  // codegenMode();
+  // break;
+  default:
+    defaultMode();
+}
